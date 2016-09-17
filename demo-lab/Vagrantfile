@@ -1,0 +1,30 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure(2) do |config|
+
+  config.vm.define "apm" do |apm|
+    apm.vm.box = "ubuntu/trusty64"
+    apm.vm.hostname = "apm"
+    apm.vm.network "private_network", ip: "192.168.33.10"
+    apm.vm.synced_folder "./provisioning/ansible", "/home/vagrant/ansible", type: "rsync"
+  end
+
+  config.vm.define "service" do |service|
+    service.vm.box="ubuntu/trusty64"
+    service.vm.hostname = "service"
+    service.vm.network "private_network", ip: "192.168.33.20"
+    service.vm.network "forwarded_port", guest: 80, host: 8080
+  end
+
+  config.vm.define "db" do |db|
+    db.vm.box = "ubuntu/trusty64"
+    db.vm.hostname = "db"
+    db.vm.network "private_network", ip: "192.168.33.30"
+  end
+
+end
