@@ -35,7 +35,7 @@
     * apm - Ansible Provisioning Machine. Where ansible runs
     * service - Remote server hosting the service (web)
     * db - Remote server hosting the database
-    * syncing folders
+    * syncing folders - so that I can edit code here.
   * Ansible code - `cd ../demo-lab/provisioning/ansible`
   * `vagrant up`
   * in another terminal `vagrant rsync-auto`
@@ -70,6 +70,7 @@
 * vars for hosts and groups
 * Order of preference of vars
   * All < Group < Host
+* [Reference](http://docs.ansible.com/ansible/intro_inventory.html)
 
 ## Ansible config Basics
 * Config order of preference
@@ -81,8 +82,12 @@
 * Yaml finicky about whitespace and formatting
 
 ## Demo gotchas
+* inventory file had execute permissions
+  * [Reference](http://stackoverflow.com/questions/18385925/error-when-running-ansible-playbook)
+  * `chmod 644 inventory`
 * apm - needed sshpass
   * `sudo apt-get install sshpass`
+* check if rsync-auto is running on another terminal. more details on rsync-auto [here](https://www.vagrantup.com/docs/cli/rsync-auto.html).
 
 ## What is Not Covered
 * Scaling out inventory
