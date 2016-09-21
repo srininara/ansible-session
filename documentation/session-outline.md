@@ -103,8 +103,8 @@
 * Check the individual nodes for demo purposes that nothing is already installed on them)
   * db node
     * `which psql`
-    * `which postgresql`
     * `service --status-all`
+    * `service postgresql status`
   * service node
     * `which node`
     * `which npm`
@@ -127,7 +127,7 @@
   * `chmod 644 inventory`
 <!-- * apm - needed sshpass
   * `sudo apt-get install sshpass` -->
-  
+
 * check if rsync-auto is running on another terminal. more details on rsync-auto [here](https://www.vagrantup.com/docs/cli/rsync-auto.html).
 * found apt module does not work on update_cache mode. Could not find the reason. One possibility could be [this](https://github.com/ansible/ansible-modules-core/issues/1497)
 
