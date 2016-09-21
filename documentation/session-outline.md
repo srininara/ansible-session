@@ -43,8 +43,14 @@
   * in another terminal `vagrant rsync-auto`
 
 ## Ansible installation
-  * apt-get (Demo)
+  * apt-get
     * `vagrant ssh apm`
+    * `sudo apt-get install ansible`
+    * Installs an old version 1.5.4
+  * apt-get latest version (Demo)
+    * `sudo apt-get install software-properties-common`
+    * `sudo apt-add-repository ppa:ansible/ansible`
+    * `sudo apt-get update`
     * `sudo apt-get install ansible`
   * yum
   * pip
@@ -56,13 +62,6 @@
     * ssh fingerprint issue
       * `ssh vagrant@192.168.33.30` -- example
     * `ansible all -i inventory -u vagrant -k -m ping -vvvv`
-
-  * Yaml!
-    * _Whitespace_ finicky!
-    * Start a document with ---
-    * \# for comments
-    * key value pairs -> a: b  (Note the space after colon)
-    * for yaml enthusiasts - [refer here](http://www.yaml.org/refcard.html)
 
 ## Inventory Basics
 * `ansible all -i inventory1 -m ping`
@@ -99,31 +98,51 @@
   * `ansible service_hosts -m shell -a "echo $PATH"`
 
 ## Ansible Playbook basics
+* The playbook brings it all together.
+* Walk through the my_app.yml
+* Check the individual nodes for demo purposes that nothing is already installed on them)
+  * db node
+    * `which psql`
+    * `which postgresql`
+    * `service --status-all`
+  * service node
+    * `which node`
+    * `which npm`
+    * `npm list -g`
+* Run `ansible-playbook my_app.yml`
+* Rerun the checks and confirm installation
 
 ## Summarizing what to watch out for
-* Yaml finicky about whitespace and formatting
+* Yaml!
+  * _Whitespace_ finicky!
+  * Start a document with ---
+  * \# for comments
+  * key value pairs -> a: b  (Note the space after colon)
+  * for yaml enthusiasts - [refer here](http://www.yaml.org/refcard.html)
 * Bugs in commands
 
-## Demo gotchas
+### Demo gotchas
 * inventory file had execute permissions
   * [Reference](http://stackoverflow.com/questions/18385925/error-when-running-ansible-playbook)
   * `chmod 644 inventory`
-* apm - needed sshpass
-  * `sudo apt-get install sshpass`
+<!-- * apm - needed sshpass
+  * `sudo apt-get install sshpass` -->
+  
 * check if rsync-auto is running on another terminal. more details on rsync-auto [here](https://www.vagrantup.com/docs/cli/rsync-auto.html).
 * found apt module does not work on update_cache mode. Could not find the reason. One possibility could be [this](https://github.com/ansible/ansible-modules-core/issues/1497)
 
 ## What is Not Covered
-* Scaling out inventory
-* Execution Types
-* Var Prompts
-* Handlers
-* Templates
-* Conditionals
-* Roles
-* Tags
-* Site
-* Pre and Post tasks
-* Host Targeting patterns
+* Scaling out inventory - Ability to split out the inventory configuration
+* Execution Types - The way ansible gets executed. There are options
+* Var Prompts - Ability to prompt for variables
+* Handlers - Event handling
+* Templates - Templating which allows to create config files etc with dynamic varibles
+* Conditionals - Ability to chose to execute a task or not
+* Roles - Reusable playbooks
+* Pre and Post tasks - Tasks to be executed before and after
+* Host Targeting patterns - More flexible ways by which tasks can be targeted to hosts
+* Vault - Ability to keep and manage secrets like passwords
+* And more... (Tags, Site etc.)
+
 
 ## References
