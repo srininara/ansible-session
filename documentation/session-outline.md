@@ -109,12 +109,13 @@
   * deprecated
 * Different categories of modules available. Refer [here](http://docs.ansible.com/ansible/modules_by_category.html)
 * `ansbile-doc` - module documentation in the local (without net)
-  * `ansible-doc -l`
-  * `ansible-doc -s apt`
+  * `ansible-doc -l` and `ansible-doc -s apt`
 * Direct command to execute across parent groups
   * `ansible datacenter -m command -a "apt-get update" --sudo`
-* Command to execute only on a particular group
+* A Shell Command to execute only on a particular group
   * `ansible service_hosts -m shell -a "echo $PATH"`
+* Running Apt Module on a particular group
+  * `ansible service_hosts -i inventory1 -m apt -a "update_cache=yes" -s`
 
 <!--slide-->
 ## Ansible Playbook basics
@@ -173,3 +174,4 @@
 * https://www.upguard.com/articles/ansible-vs.-ansible-tower
 * http://docs.ansible.com/
 * https://serversforhackers.com/an-ansible-tutorial
+* https://www.pluralsight.com/courses/hands-on-ansible
