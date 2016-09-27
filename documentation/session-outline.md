@@ -1,3 +1,4 @@
+<!-- Used markdown-preview-enhanced for creating slide show (reveal js based) -->
 <!--slide-->
 # Ansible Session
 <!--slide-->
@@ -119,6 +120,8 @@
 
 <!--slide-->
 ## Ansible Playbook basics
+![ansible playbook parts](./playbook-parts.png)
+<!--slide-->
 * The playbook brings it all together.
 * Walk through the my_app.yml
 * Check the individual nodes for demo purposes that nothing is already installed on them)
@@ -149,7 +152,6 @@
   * [Reference](http://stackoverflow.com/questions/18385925/error-when-running-ansible-playbook)
   * `chmod 644 inventory`
 * check if rsync-auto is running on another terminal. more details on rsync-auto [here](https://www.vagrantup.com/docs/cli/rsync-auto.html).
-* found apt module does not work on update_cache mode. Could not find the reason. One possibility could be [this](https://github.com/ansible/ansible-modules-core/issues/1497)
 
 <!--slide-->
 ## What is Not Covered

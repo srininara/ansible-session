@@ -1444,6 +1444,22 @@ html:-moz-full-screen-ancestor {
 .markdown-preview-enhanced[data-use-github-style] .mermaid marker path { fill: rgb(51, 51, 51) !important; opacity: 1 !important; }
 .markdown-preview-enhanced[data-use-github-style] line, .markdown-preview-enhanced[data-use-github-style] marker { stroke: rgb(51, 51, 51) !important; opacity: 1 !important; }
 .markdown-preview-enhanced[data-use-github-style] .messageText { fill: rgb(51, 51, 51); }
+.markdown-preview-enhanced[is="space-pen-div"] .erd { overflow-x: auto; }
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk { position: relative; }
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk.hide-chunk { display: block !important; }
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk:hover .run-all-btn { display: block !important; }
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk:hover .btn-group { opacity: 1; }
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk .btn-group { position: absolute; right: 0px; top: 0px; padding: 4px; opacity: 0.4; }
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk .btn-group .btn { text-align: center; color: rgb(255, 255, 255); float: right; margin-left: 2px; border-radius: 4px; border-style: none; background-image: none; background-color: rgb(147, 187, 124); }
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk .btn-group .btn:hover { cursor: pointer; background-color: rgb(119, 170, 90); }
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk .btn-group .btn.run-btn { display: block !important; }
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk.running .run-btn span { display: none; }
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk.running .run-btn::after { content: "ᕕ(╯°□°)ᕗ"; }
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk.running .run-btn:hover { cursor: not-allowed; }
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk .output-div { overflow-x: auto; margin-bottom: 16px; }
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk pre { cursor: text; }
+.markdown-preview-enhanced:not([is="space-pen-div"]) .code-chunk.hide-chunk pre.editor-colors, .markdown-preview-enhanced:not([is="space-pen-div"]) .code-chunk.hide-chunk .btn-group { display: none; }
+.markdown-preview-enhanced:not([is="space-pen-div"]) .code-chunk.hide-chunk .output-div { display: block; }
 .markdown-preview-enhanced .github-syntax-theme pre.editor-colors, .markdown-preview-enhanced .github-syntax-theme .host { color: rgb(51, 51, 51); background-color: rgb(247, 247, 247); }
 .markdown-preview-enhanced .github-syntax-theme pre { color: rgb(51, 51, 51); background-color: rgb(247, 247, 247); }
 .markdown-preview-enhanced .github-syntax-theme pre.editor-colors .gutter, .markdown-preview-enhanced .github-syntax-theme .host .gutter { color: rgb(179, 179, 179); background-color: rgb(255, 255, 255); }
@@ -2315,203 +2331,217 @@ div.mermaidTooltip {
 }
  </style> <link rel="stylesheet" href="file:////Users/narayasr/.atom/packages/markdown-preview-enhanced/node_modules/katex/dist/katex.min.css"> <script src='/Users/narayasr/.atom/packages/markdown-preview-enhanced/dependencies/reveal/js/reveal.js'></script> </head> <body class="markdown-preview-enhanced " data-use-github-style data-use-github-syntax-theme data-presentation-mode> <div class="reveal">
   <div class="slides">
-    <section ><h1 class="line" data-line="1" id="ansible-session">Ansible Session</h1>
-</section><section ><h2 class="line" data-line="3" id="overview-of-ansible">Overview of ansible</h2>
-<h3 class="line" data-line="5" id="what-is-ansible">What is Ansible?</h3>
+    <section ><h1 class="sync-line" data-line="2" id="ansible-session">Ansible Session</h1>
+</section><section ><h2 class="sync-line" data-line="4" id="overview-of-ansible">Overview of ansible</h2>
+<h3 class="sync-line" data-line="6" id="what-is-ansible">What is Ansible?</h3>
 <ul>
-<li><p class="line" data-line="6">An automation tool</p></li>
-<li><p class="line" data-line="7">Configuration Management</p></li>
-<li><p class="line" data-line="8">Infrastructure Provisioning</p></li>
+<li><p class="sync-line" data-line="7">An automation tool</p></li>
+<li><p class="sync-line" data-line="8">Configuration Management</p></li>
+<li><p class="sync-line" data-line="9">Infrastructure Provisioning and Orchestration</p></li>
 </ul>
-<h3 class="line" data-line="10" id="why-ansible">Why Ansible?</h3>
+<h3 class="sync-line" data-line="11" id="why-ansible">Why Ansible?</h3>
 <ul>
-<li><p class="line" data-line="11">Agent less</p></li>
-<li><p class="line" data-line="12">Simple to use</p></li>
-<li><p class="line" data-line="13">Python and JSON based</p></li>
-<li><p class="line" data-line="14">Great community</p></li>
+<li><p class="sync-line" data-line="12">Agent less</p></li>
+<li><p class="sync-line" data-line="13">No database</p></li>
+<li><p class="sync-line" data-line="14">Simple to use - YAML</p></li>
+<li><p class="sync-line" data-line="15">Python and JSON based</p></li>
+<li><p class="sync-line" data-line="16">Great community</p></li>
+<li><p class="sync-line" data-line="17">Idempotence</p></li>
+<li><p class="sync-line" data-line="18">Secure</p></li>
 </ul>
-</section><section ><h3 class="line" data-line="16" id="big-picture">Big Picture</h3>
-<p class="line" data-line="17"><img src="./ansible-big-picture.png" alt="ansible big picture"></p>
-</section><section ><h3 class="line" data-line="20" id="important-concepts">Important Concepts</h3>
+</section><section ><h3 class="sync-line" data-line="21" id="big-picture">Big Picture</h3>
+<p class="sync-line" data-line="22"><img src="./ansible-big-picture.png" alt="ansible big picture"></p>
+</section><section ><h3 class="sync-line" data-line="25" id="important-concepts">Important Concepts</h3>
 <ul>
-<li><p class="line" data-line="21">Inventory</p></li>
-<li><p class="line" data-line="22">Config</p></li>
-<li><p class="line" data-line="23">Modules</p></li>
-<li><p class="line" data-line="24">Playbook
+<li><p class="sync-line" data-line="26">Inventory</p></li>
+<li><p class="sync-line" data-line="27">Config</p></li>
+<li><p class="sync-line" data-line="28">Modules</p></li>
+<li><p class="sync-line" data-line="29">Playbook
 <ul>
-<li><p class="line" data-line="25">Plays</p></li>
+<li><p class="sync-line" data-line="30">Plays</p></li>
 </ul></p></li>
-<li><p class="line" data-line="26">Python and SSH</p></li>
-<li><p class="line" data-line="27">JSON</p></li>
+<li><p class="sync-line" data-line="31">Variables</p></li>
 </ul>
-</section><section ><h3 class="line" data-line="29" id="ansible-needs">Ansible Needs</h3>
-<h4 class="line" data-line="30" id="control-server-provisioning-machine-manager">Control server/ Provisioning machine - Manager</h4>
+</section><section ><h3 class="sync-line" data-line="33" id="ansible-needs">Ansible Needs</h3>
+<h4 class="sync-line" data-line="34" id="control-server-provisioning-machine-manager">Control server/ Provisioning machine - Manager</h4>
 <ul>
-<li><p class="line" data-line="31">*NIX variants only</p></li>
-<li><p class="line" data-line="32">Python 2.6 +</p></li>
-<li><p class="line" data-line="33">No Python 3</p></li>
+<li><p class="sync-line" data-line="35">*NIX variants only</p></li>
+<li><p class="sync-line" data-line="36">Python 2.6 +</p></li>
+<li><p class="sync-line" data-line="37">No Python 3</p></li>
 </ul>
-<h4 class="line" data-line="35" id="remote-server-managed">Remote server - Managed</h4>
+<h4 class="sync-line" data-line="39" id="remote-server-managed">Remote server - Managed</h4>
 <ul>
-<li><p class="line" data-line="36">*NIX + Windows</p></li>
-<li><p class="line" data-line="37">Python 2.5+ (2.4 possible)</p></li>
-<li><p class="line" data-line="38">SSH</p></li>
-<li><p class="line" data-line="39">Remote Powershell for Windows</p></li>
-<li><p class="line" data-line="40">No Python 3</p></li>
+<li><p class="sync-line" data-line="40">*NIX + Windows</p></li>
+<li><p class="sync-line" data-line="41">Python 2.5+ (2.4 possible)</p></li>
+<li><p class="sync-line" data-line="42">SSH</p></li>
+<li><p class="sync-line" data-line="43">Remote Powershell for Windows</p></li>
+<li><p class="sync-line" data-line="44">No Python 3</p></li>
 </ul>
-</section><section ><h2 class="line" data-line="43" id="overview-of-the-lab-setup">Overview of the lab setup</h2>
+</section><section ><h2 class="sync-line" data-line="47" id="overview-of-the-lab-setup">Overview of the lab setup</h2>
 <ul>
-<li><p class="line" data-line="44">Vagrant &amp; Virtualbox</p></li>
-<li><p class="line" data-line="45">Quick overview of the vagrant file
+<li><p class="sync-line" data-line="48">Vagrant &amp; Virtualbox</p></li>
+<li><p class="sync-line" data-line="49">Quick overview of the vagrant file
 <ul>
-<li><p class="line" data-line="46">apm - Ansible Provisioning Machine. Where ansible runs</p></li>
-<li><p class="line" data-line="47">service - Remote server hosting the service (web)</p></li>
-<li><p class="line" data-line="48">db - Remote server hosting the database</p></li>
-<li><p class="line" data-line="49">syncing folders - so that I can edit code here.</p></li>
+<li><p class="sync-line" data-line="50">apm - Ansible Provisioning Machine. Where ansible runs</p></li>
+<li><p class="sync-line" data-line="51">service - Remote server hosting the service (web)</p></li>
+<li><p class="sync-line" data-line="52">db - Remote server hosting the database</p></li>
+<li><p class="sync-line" data-line="53">syncing folders - so that I can edit code here.</p></li>
 </ul></p></li>
-<li><p class="line" data-line="50">A_SESSION_HOME = Home folder of where the session related artifacts are downloaded or kept</p></li>
-<li><p class="line" data-line="51">Ansible code - <code>cd $A_SESSION_HOME/demo-lab/provisioning/ansible</code></p></li>
-<li><p class="line" data-line="52"><code>cd $A_SESSION_HOME/demo-lab</code></p></li>
-<li><p class="line" data-line="53"><code>vagrant up</code></p></li>
-<li><p class="line" data-line="54"><strong>In Another Terminal</strong> <code>vagrant rsync-auto</code></p></li>
+<li><p class="sync-line" data-line="54">A_SESSION_HOME = Home folder of where the session related artifacts are downloaded or kept</p></li>
+<li><p class="sync-line" data-line="55">Ansible code - <code>cd $A_SESSION_HOME/demo-lab/provisioning/ansible</code></p></li>
+<li><p class="sync-line" data-line="56"><code>cd $A_SESSION_HOME/demo-lab</code></p></li>
+<li><p class="sync-line" data-line="57"><code>vagrant up</code></p></li>
+<li><p class="sync-line" data-line="58"><strong>In Another Terminal</strong> <code>vagrant rsync-auto</code></p></li>
 </ul>
-</section><section ><h2 class="line" data-line="57" id="ansible-installation">Ansible installation</h2>
+</section><section ><h2 class="sync-line" data-line="61" id="ansible-installation">Ansible installation</h2>
 <ul>
-<li><p class="line" data-line="58">apt-get
+<li><p class="sync-line" data-line="62">apt-get
 <ul>
-<li><p class="line" data-line="59"><code>vagrant ssh apm</code></p></li>
-<li><p class="line" data-line="60"><code>sudo apt-get install ansible</code></p></li>
-<li><p class="line" data-line="61">Installs an old version 1.5.4</p></li>
+<li><p class="sync-line" data-line="63"><code>vagrant ssh apm</code></p></li>
+<li><p class="sync-line" data-line="64"><code>sudo apt-get install ansible</code></p></li>
+<li><p class="sync-line" data-line="65">Installs an old version 1.5.4</p></li>
 </ul></p></li>
-<li><p class="line" data-line="62">apt-get latest version (Demo)
+<li><p class="sync-line" data-line="66">apt-get latest version (Demo)
 <ul>
-<li><p class="line" data-line="63"><code>sudo apt-get install software-properties-common</code></p></li>
-<li><p class="line" data-line="64"><code>sudo apt-add-repository ppa:ansible/ansible</code></p></li>
-<li><p class="line" data-line="65"><code>sudo apt-get update</code></p></li>
-<li><p class="line" data-line="66"><code>sudo apt-get install ansible</code></p></li>
+<li><p class="sync-line" data-line="67"><code>sudo apt-get install software-properties-common</code></p></li>
+<li><p class="sync-line" data-line="68"><code>sudo apt-add-repository ppa:ansible/ansible</code></p></li>
+<li><p class="sync-line" data-line="69"><code>sudo apt-get update</code></p></li>
+<li><p class="sync-line" data-line="70"><code>sudo apt-get install ansible</code></p></li>
 </ul></p></li>
-<li><p class="line" data-line="67">yum</p></li>
-<li><p class="line" data-line="68">pip</p></li>
+<li><p class="sync-line" data-line="71">yum</p></li>
+<li><p class="sync-line" data-line="72">pip</p></li>
 </ul>
-</section><section ><h2 class="line" data-line="71" id="ansible-hello-world-our-first-interaction">Ansible Hello World - Our First Interaction</h2>
+</section><section ><h2 class="sync-line" data-line="75" id="ansible-hello-world-our-first-interaction">Ansible Hello World - Our First Interaction</h2>
 <ul>
-<li><p class="line" data-line="72"><code>cd ansible</code> : This is our working directory</p></li>
-<li><p class="line" data-line="73"><code>ansible all -i inventory -u vagrant -k -m ping</code></p></li>
-<li><p class="line" data-line="74">ssh fingerprint issue
+<li><p class="sync-line" data-line="76"><code>cd ansible</code> : This is our working directory</p></li>
+<li><p class="sync-line" data-line="77"><code>ansible all -i inventory -u vagrant -k -m ping</code></p></li>
+<li><p class="sync-line" data-line="78">ssh fingerprint issue
 <ul>
-<li><p class="line" data-line="75"><code>ssh vagrant@192.168.33.30</code> – example</p></li>
+<li><p class="sync-line" data-line="79"><code>ssh vagrant@192.168.33.30</code> – example</p></li>
 </ul></p></li>
-<li><p class="line" data-line="76"><code>ansible all -i inventory -u vagrant -k -m ping -vvvv</code></p></li>
+<li><p class="sync-line" data-line="80"><code>ansible all -i inventory -u vagrant -k -m ping -vvvv</code></p></li>
 </ul>
-</section><section ><h2 class="line" data-line="79" id="inventory-basics">Inventory Basics</h2>
+</section><section ><h2 class="sync-line" data-line="83" id="inventory-basics">Inventory Basics</h2>
 <ul>
-<li><p class="line" data-line="80"><code>ansible all -i inventory1 -m ping</code></p></li>
-<li><p class="line" data-line="81">Walk through <code>inventory1</code></p></li>
-<li><p class="line" data-line="82">groups</p></li>
-<li><p class="line" data-line="83">children</p></li>
-<li><p class="line" data-line="84">vars for hosts and groups</p></li>
-<li><p class="line" data-line="85">Order of preference of vars
+<li><p class="sync-line" data-line="84"><code>ansible all -i inventory1 -m ping</code></p></li>
+<li><p class="sync-line" data-line="85">Walk through <code>inventory1</code></p></li>
+<li><p class="sync-line" data-line="86">groups</p></li>
+<li><p class="sync-line" data-line="87">children</p></li>
+<li><p class="sync-line" data-line="88">vars for hosts and groups</p></li>
+<li><p class="sync-line" data-line="89">Order of preference of vars
 <ul>
-<li><p class="line" data-line="86">All &lt; Group &lt; Host</p></li>
+<li><p class="sync-line" data-line="90">All &lt; Group &lt; Host</p></li>
 </ul></p></li>
-<li><p class="line" data-line="87"><a href="http://docs.ansible.com/ansible/intro_inventory.html">Reference</a></p></li>
-<li><p class="line" data-line="88"><code>ansible datacenter -i inventory1 -m ping</code> - runs on datacenter group which has two children</p></li>
-<li><p class="line" data-line="89"><code>ansible service_hosts -i inventory1 -m ping</code> - runs on a single group</p></li>
-<li><p class="line" data-line="90"><code>ansible service1 -i inventory1 -m ping</code> - runs on a specific node</p></li>
+<li><p class="sync-line" data-line="91"><a href="http://docs.ansible.com/ansible/intro_inventory.html">Reference</a></p></li>
+<li><p class="sync-line" data-line="92"><code>ansible datacenter -i inventory1 -m ping</code> - runs on datacenter group which has two children</p></li>
+<li><p class="sync-line" data-line="93"><code>ansible service_hosts -i inventory1 -m ping</code> - runs on a single group</p></li>
+<li><p class="sync-line" data-line="94"><code>ansible service1 -i inventory1 -m ping</code> - runs on a specific node</p></li>
 </ul>
-</section><section ><h2 class="line" data-line="93" id="ansible-config-basics">Ansible config Basics</h2>
+</section><section ><h2 class="sync-line" data-line="97" id="ansible-config-basics">Ansible config Basics</h2>
 <ul>
-<li><p class="line" data-line="94">Config order of preference
+<li><p class="sync-line" data-line="98">Config order of preference
 <ul>
-<li><p class="line" data-line="95">environment variable &gt; ./ansible.cfg &gt; ~/.ansible.cfg &gt; /etc/ansible/ansible.cfg</p></li>
-<li><p class="line" data-line="96">first one wins! no merging</p></li>
+<li><p class="sync-line" data-line="99">environment variable &gt; ./ansible.cfg &gt; ~/.ansible.cfg &gt; /etc/ansible/ansible.cfg</p></li>
+<li><p class="sync-line" data-line="100">first one wins! no merging</p></li>
 </ul></p></li>
-<li><p class="line" data-line="97"><a href="http://docs.ansible.com/ansible/intro_configuration.html">Reference</a></p></li>
-<li><p class="line" data-line="98"><code>ansible datacenter -m ping</code></p></li>
+<li><p class="sync-line" data-line="101"><a href="http://docs.ansible.com/ansible/intro_configuration.html">Reference</a></p></li>
+<li><p class="sync-line" data-line="102"><code>ansible datacenter -m ping</code></p></li>
 </ul>
-</section><section ><h2 class="line" data-line="101" id="ansible-modules">Ansible Modules</h2>
+</section><section ><h2 class="sync-line" data-line="105" id="ansible-modules">Ansible Modules</h2>
 <ul>
-<li><p class="line" data-line="102">There are many modules available in ansible.
+<li><p class="sync-line" data-line="106">There are many modules available in ansible.
 <ul>
-<li><p class="line" data-line="103">core</p></li>
-<li><p class="line" data-line="104">extras (contributed)</p></li>
-<li><p class="line" data-line="105">deprecated</p></li>
+<li><p class="sync-line" data-line="107">core</p></li>
+<li><p class="sync-line" data-line="108">extras (contributed)</p></li>
+<li><p class="sync-line" data-line="109">deprecated</p></li>
 </ul></p></li>
-<li><p class="line" data-line="106">Different categories of modules available. Refer <a href="http://docs.ansible.com/ansible/modules_by_category.html">here</a></p></li>
-<li><p class="line" data-line="107"><code>ansbile-doc</code> - module documentation in the local (without net)
+<li><p class="sync-line" data-line="110">Different categories of modules available. Refer <a href="http://docs.ansible.com/ansible/modules_by_category.html">here</a></p></li>
+<li><p class="sync-line" data-line="111"><code>ansbile-doc</code> - module documentation in the local (without net)
 <ul>
-<li><p class="line" data-line="108"><code>ansible-doc -l</code></p></li>
-<li><p class="line" data-line="109"><code>ansible-doc -s apt</code></p></li>
+<li><p class="sync-line" data-line="112"><code>ansible-doc -l</code> and <code>ansible-doc -s apt</code></p></li>
 </ul></p></li>
-<li><p class="line" data-line="110">Direct command to execute across parent groups
+<li><p class="sync-line" data-line="113">Direct command to execute across parent groups
 <ul>
-<li><p class="line" data-line="111"><code>ansible datacenter -m command -a &quot;apt-get update&quot; --sudo</code></p></li>
+<li><p class="sync-line" data-line="114"><code>ansible datacenter -m command -a &quot;apt-get update&quot; --sudo</code></p></li>
 </ul></p></li>
-<li><p class="line" data-line="112">Command to execute only on a particular group
+<li><p class="sync-line" data-line="115">A Shell Command to execute only on a particular group
 <ul>
-<li><p class="line" data-line="113"><code>ansible service_hosts -m shell -a &quot;echo $PATH&quot;</code></p></li>
+<li><p class="sync-line" data-line="116"><code>ansible service_hosts -m shell -a &quot;echo $PATH&quot;</code></p></li>
+</ul></p></li>
+<li><p class="sync-line" data-line="117">Running Apt Module on a particular group
+<ul>
+<li><p class="sync-line" data-line="118"><code>ansible service_hosts -i inventory1 -m apt -a &quot;update_cache=yes&quot; -s</code></p></li>
 </ul></p></li>
 </ul>
-</section><section ><h2 class="line" data-line="116" id="ansible-playbook-basics">Ansible Playbook basics</h2>
+</section><section ><h2 class="sync-line" data-line="121" id="ansible-playbook-basics">Ansible Playbook basics</h2>
+<p class="sync-line" data-line="122"><img src="./playbook-parts.png" alt="ansible playbook parts"></p>
+</section><section ><ul>
+<li><p class="sync-line" data-line="124">The playbook brings it all together.</p></li>
+<li><p class="sync-line" data-line="125">Walk through the my_app.yml</p></li>
+<li><p class="sync-line" data-line="126">Check the individual nodes for demo purposes that nothing is already installed on them)
 <ul>
-<li><p class="line" data-line="117">The playbook brings it all together.</p></li>
-<li><p class="line" data-line="118">Walk through the my_app.yml</p></li>
-<li><p class="line" data-line="119">Check the individual nodes for demo purposes that nothing is already installed on them)
+<li><p class="sync-line" data-line="127">db node
 <ul>
-<li><p class="line" data-line="120">db node
-<ul>
-<li><p class="line" data-line="121"><code>which psql</code></p></li>
-<li><p class="line" data-line="122"><code>service --status-all</code></p></li>
-<li><p class="line" data-line="123"><code>service postgresql status</code></p></li>
+<li><p class="sync-line" data-line="128"><code>which psql</code></p></li>
+<li><p class="sync-line" data-line="129"><code>service --status-all</code></p></li>
+<li><p class="sync-line" data-line="130"><code>service postgresql status</code></p></li>
 </ul></p></li>
-<li><p class="line" data-line="124">service node
+<li><p class="sync-line" data-line="131">service node
 <ul>
-<li><p class="line" data-line="125"><code>which node</code></p></li>
-<li><p class="line" data-line="126"><code>which npm</code></p></li>
-<li><p class="line" data-line="127"><code>npm list -g</code></p></li>
+<li><p class="sync-line" data-line="132"><code>which node</code></p></li>
+<li><p class="sync-line" data-line="133"><code>which npm</code></p></li>
+<li><p class="sync-line" data-line="134"><code>npm list -g</code></p></li>
 </ul></p></li>
 </ul></p></li>
-<li><p class="line" data-line="128">Run <code>ansible-playbook my_app.yml</code></p></li>
-<li><p class="line" data-line="129">Rerun the checks and confirm installation</p></li>
+<li><p class="sync-line" data-line="135">Run <code>ansible-playbook my_app.yml</code></p></li>
+<li><p class="sync-line" data-line="136">Rerun the checks and confirm installation</p></li>
 </ul>
-</section><section ><h2 class="line" data-line="132" id="summarizing-what-to-watch-out-for">Summarizing what to watch out for</h2>
+</section><section ><h2 class="sync-line" data-line="139" id="summarizing-what-to-watch-out-for">Summarizing what to watch out for</h2>
 <ul>
-<li><p class="line" data-line="133">Yaml!
+<li><p class="sync-line" data-line="140">Yaml!
 <ul>
-<li><p class="line" data-line="134"><em>Whitespace</em> finicky!</p></li>
-<li><p class="line" data-line="135">Start a document with —</p></li>
-<li><p class="line" data-line="136"># for comments</p></li>
-<li><p class="line" data-line="137">key value pairs -&gt; a: b  (Note the space after colon)</p></li>
-<li><p class="line" data-line="138">for yaml enthusiasts - <a href="http://www.yaml.org/refcard.html">refer here</a></p></li>
+<li><p class="sync-line" data-line="141"><em>Whitespace</em> finicky!</p></li>
+<li><p class="sync-line" data-line="142">Start a document with —</p></li>
+<li><p class="sync-line" data-line="143"># for comments</p></li>
+<li><p class="sync-line" data-line="144">key value pairs -&gt; a: b  (Note the space after colon)</p></li>
+<li><p class="sync-line" data-line="145">for yaml enthusiasts - <a href="http://www.yaml.org/refcard.html">refer here</a></p></li>
 </ul></p></li>
-<li><p class="line" data-line="139">Bugs in commands</p></li>
+<li><p class="sync-line" data-line="146">Bugs in commands</p></li>
 </ul>
-</section><section ><h2 class="line" data-line="142" id="demo-gotchas">Demo gotchas</h2>
+</section><section ><h2 class="sync-line" data-line="149" id="demo-gotchas">Demo gotchas</h2>
 <ul>
-<li><p class="line" data-line="143">inventory file had execute permissions
+<li><p class="sync-line" data-line="150">inventory file had execute permissions
 <ul>
-<li><p class="line" data-line="144"><a href="http://stackoverflow.com/questions/18385925/error-when-running-ansible-playbook">Reference</a></p></li>
-<li><p class="line" data-line="145"><code>chmod 644 inventory</code></p></li>
+<li><p class="sync-line" data-line="151"><a href="http://stackoverflow.com/questions/18385925/error-when-running-ansible-playbook">Reference</a></p></li>
+<li><p class="sync-line" data-line="152"><code>chmod 644 inventory</code></p></li>
 </ul></p></li>
-<li><p class="line" data-line="146">check if rsync-auto is running on another terminal. more details on rsync-auto <a href="https://www.vagrantup.com/docs/cli/rsync-auto.html">here</a>.</p></li>
-<li><p class="line" data-line="147">found apt module does not work on update_cache mode. Could not find the reason. One possibility could be <a href="https://github.com/ansible/ansible-modules-core/issues/1497">this</a></p></li>
+<li><p class="sync-line" data-line="153">check if rsync-auto is running on another terminal. more details on rsync-auto <a href="https://www.vagrantup.com/docs/cli/rsync-auto.html">here</a>.</p></li>
 </ul>
-</section><section ><h2 class="line" data-line="150" id="what-is-not-covered">What is Not Covered</h2>
+</section><section ><h2 class="sync-line" data-line="156" id="what-is-not-covered">What is Not Covered</h2>
 <ul>
-<li><p class="line" data-line="151">Scaling out inventory - Ability to split out the inventory configuration</p></li>
-<li><p class="line" data-line="152">Execution Types - The way ansible gets executed. There are options</p></li>
-<li><p class="line" data-line="153">Var Prompts - Ability to prompt for variables</p></li>
-<li><p class="line" data-line="154">Handlers - Event handling</p></li>
-<li><p class="line" data-line="155">Templates - Templating which allows to create config files etc with dynamic varibles</p></li>
-<li><p class="line" data-line="156">Conditionals - Ability to chose to execute a task or not</p></li>
+<li><p class="sync-line" data-line="157">Scaling out inventory - Ability to split out the inventory configuration</p></li>
+<li><p class="sync-line" data-line="158">Execution Types - The way ansible gets executed. There are options</p></li>
+<li><p class="sync-line" data-line="159">Var Prompts - Ability to prompt for variables</p></li>
+<li><p class="sync-line" data-line="160">Handlers - Event handling</p></li>
+<li><p class="sync-line" data-line="161">Templates - Templating which allows to create config files etc with dynamic varibles</p></li>
+<li><p class="sync-line" data-line="162">Conditionals - Ability to chose to execute a task or not</p></li>
 </ul>
 </section><section ><ul>
-<li><p class="line" data-line="158">Roles - Reusable playbooks</p></li>
-<li><p class="line" data-line="159">Pre and Post tasks - Tasks to be executed before and after</p></li>
-<li><p class="line" data-line="160">Host Targeting patterns - More flexible ways by which tasks can be targeted to hosts</p></li>
-<li><p class="line" data-line="161">Vault - Ability to keep and manage secrets like passwords</p></li>
-<li><p class="line" data-line="162">Tower - Commercial offering which provides a management interface which would help enterprises to manage their ansible setup.</p></li>
-<li><p class="line" data-line="163">And more… (Tags, Site etc.)</p></li>
+<li><p class="sync-line" data-line="164">Roles - Reusable playbooks</p></li>
+<li><p class="sync-line" data-line="165">Pre and Post tasks - Tasks to be executed before and after</p></li>
+<li><p class="sync-line" data-line="166">Host Targeting patterns - More flexible ways by which tasks can be targeted to hosts</p></li>
+<li><p class="sync-line" data-line="167">Vault - Ability to keep and manage secrets like passwords</p></li>
+<li><p class="sync-line" data-line="168">Tower - Commercial offering which provides a management interface which would help enterprises to manage their ansible setup.</p></li>
+<li><p class="sync-line" data-line="169">And more… (Tags, Site etc.)</p></li>
+<li><p class="sync-line" data-line="170">Docker support - Yes it is supported!</p></li>
+</ul>
+</section><section ><h2 class="sync-line" data-line="173" id="references">References</h2>
+<ul>
+<li><p class="sync-line" data-line="174"><a href="https://www.ansible.com/how-ansible-works">https://www.ansible.com/how-ansible-works</a></p></li>
+<li><p class="sync-line" data-line="175"><a href="https://www.upguard.com/articles/ansible-vs.-ansible-tower">https://www.upguard.com/articles/ansible-vs.-ansible-tower</a></p></li>
+<li><p class="sync-line" data-line="176"><a href="http://docs.ansible.com/">http://docs.ansible.com/</a></p></li>
+<li><p class="sync-line" data-line="177"><a href="https://serversforhackers.com/an-ansible-tutorial">https://serversforhackers.com/an-ansible-tutorial</a></p></li>
+<li><p class="sync-line" data-line="178"><a href="https://www.pluralsight.com/courses/hands-on-ansible">https://www.pluralsight.com/courses/hands-on-ansible</a></p></li>
 </ul>
 </section>
   </div>
